@@ -1,0 +1,67 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+body {
+	font-family:verdana;
+	width:100%;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	background-color:#999;
+}
+#body {
+	max-width:2000px;
+	margin:20px 0px;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-box-flex:1;
+}
+h2 {
+	font-size:34px; 
+	font-weight:bold;
+	padding:20px;
+	text-align:center;
+}
+#loginForm {
+	display:-webkit-box;
+	width:50%;
+	padding:10px;
+	margin:20px;
+	border:2px solid #b22222;
+	margin-left:370px;
+	background-color: #778899;
+}
+#login {
+	width: 75%;
+	margin-left: 100px;
+}
+.input {
+	margin-top:15px;
+	margin-bottom:15px;
+	width:250px;
+	height:30px;
+	border-radius:3px;
+	border:none;
+}
+.inputChkBox {
+	margin-top: 15px;
+	position: relative;
+	width: 50px;
+}
+label {
+	padding-right:12px;
+	float:left;
+	width:150px;
+	text-align:right;
+	margin-top:12px;
+}
+.buttons {
+	margin:10px 100px;
+	padding:20px;
+}
+.error {
+	color:red;
+	font-style: italic;
+	font-size:14px;
+	text-align:left;
+}

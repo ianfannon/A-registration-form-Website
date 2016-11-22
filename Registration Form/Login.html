@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+	<link type="text/css" rel="stylesheet" href="stylesheets/Login.css" />	
+</head>
+<body id="body">
+	<header>
+		<h2>User Login</h2>
+	</header>
+    <form id="loginForm" name="loginForm" method="post" autocomplete="off" action="Registration Form.html">
+		<fieldset id="login">
+			<legend><strong>User Login</strong></legend>
+			<p>
+				<label class="label" for="userName">Username:</label>
+				<input type="text" name="username" id="userName" class="input" autocomplete="off">
+				<span id="feedbackUser" class="error"></span>
+			</p>
+			<p>
+				<label class="label" for="passWord">Password:</label>
+				<input type="password" name="passWord" id="passWord" class="input" >
+				<span id="feedbackPass" class="error"></span>
+			</p>
+			<p>
+				<label for="signedin" class="label">Keep me Signed In</label>
+				<input type="checkbox" name="signedin" id="signedin" class="inputChkBox">
+			</p>
+			<br /><br />
+			<p>
+				<label for="remember" class="label">Remember Me</label>
+				<input type="checkbox" name="remember" id="remember" class="inputChkBox">
+			</p>
+			<p>
+				<input type="submit" name="submit" class="buttons" value="Submit">
+			</p>
+		</fieldset>
+		
+	</form>
+<script type="text/javascript" src="scripts/Login.js"></script>
+</body>
+</html>

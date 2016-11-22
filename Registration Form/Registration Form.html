@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>HTML And CSS Practice</title>
+	<link rel="stylesheet" href="res/registrationForm.css" />
+</head>
+<body>
+<div id="body">
+	<form name="simpleForm" id="simpleForm" method="get" action="Form%20Submitted.html" onsubmit="return checkForBlank(this);">
+		<legend><strong>Register Below</strong></legend>
+		<div>
+			<label for="firstname">First Name:</label>
+			<input type="text" name="firstname" id="firstname" class="validated">
+			<span id="errFirstname"></span>
+		</div>
+		<div>
+			<label for="lastname">Last Name:</label>
+			<input type="text" name="lastname" id="lastname" class="validated">
+			<span id="errLastname"></span>
+		</div>
+		<div>
+			<label for="email">Email Address:</label>
+			<input type="email" name="email" id="email" class="validated">
+			<span id="errEmail"></span>
+		</div>
+		<div id="radioButtons" >
+			<radiogroup >
+				<div>
+					<h5>Gender</h5>
+					<input type="radio" name="radio" id="male" class="validated">
+					<label for="male">Male</label>
+				</div>
+				<div>
+					<input type="radio" name="radio" id="female" class="validated">
+					<label for="female">Female</label>
+					<span id="radio"></span>
+				</div>
+			</radiogroup>
+		</div>
+		<div id="dropmenu">
+			<select name="races">
+				<option value="empty">Select</option>
+				<option value="race_1">Caucasian</option>
+				<option value="race_2">African-American</option>
+				<option value="race_3">American-Indian</option>
+				<option value="race_4">Arabic</option>
+				<option value="race_5">Indian</option>
+			</select>
+			<span id="errRaces"></span>
+		</div>
+		<div id="age">
+			<label for="age">Age:</label>
+			<input type="number" name="age" id="age" min="16" max="100" class="validated">
+			<span id="errAge"></span>
+		</div>
+		<div>
+			<label for="comments">Comments:</label>
+			<textarea name="comments" id="comments" rows="10" cols="50" maxlength="300">Please enter your comments here!</textarea>
+            <div style="margin-left: 200px;" id="textareaFeedback"></div>
+		</div>
+        <div>
+          <label for="agree">I Agree</label>
+          <input id="agree" type="checkbox" />
+        </div>
+		<div id="submitButton">
+			<input id="continue" type="submit" value="Submit" >
+		</div>
+	</form>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+function checkForBlank(form){
+	//If input fields are blank      firstname, lastname, email, date
+	if(form.firstname.value == ""){
+		document.getElementById("errFirstname").innerHTML = "Enter first name!";
+		form.firstname.focus();
+		return false;
+	}
+	var re = /^[\w ]+$/;
+	if(!re.test(form.firstname.value)){
+		document.getElementById("errFirstname").innerHTML = "Invalid Characters!";
+		form.firstname.focus();
+		return false;
+	}
+	if(form.lastname.value == ""){
+		document.getElementById("errLastname").innerHTML = "Enter last name!";
+		form.lastname.focus();
+		return false;
+	}
+	if(!re.test(form.lastname.value)){
+		document.getElementById("errLastname").innerHTML = "Invalid Characters!";
+		form.lastname.focus();
+		return false;
+	}
+	if(form.email.value == ""){
+		document.getElementById("errEmail").innerHTML = "Enter an Email!";
+		form.email.focus();
+		return false;
+	}
+	if(form.male.checked == false && form.female.checked == false){
+		document.getElementById('radio').innerHTML = "Please select a Gender!";
+		return false;
+	}
+	if(form.races.value == "empty"){
+		document.getElementById("errRaces").innerHTML = "Please select a Nationality!";
+		form.races.focus();
+		return false;
+	}
+	if(form.age.value < 16 || form.age.value > 100){
+		document.getElementById("errAge").innerHTML = "Please select an age!";
+		form.age.focus();
+		return false;
+	}
+}
+$(document).ready(function(){
+  
+  var text_max = 300;
+  $("#textareaFeedback").html(text_max + " characters remaining");
+  
+  $("#comments").keyup(function() {
+    var text_length = $("#comments").val().length;
+    var text_remaining = text_max - text_length;
+    $("#textareaFeedback").html(text_remaining + " characters remaining");
+  });
+  
+  $(':text').focusin(function() {
+    $(this).css('background', 'yellow');
+  });
+  
+  $(':text').blur(function() {
+    $(this).css('background', 'white');
+  });
+  
+  $('#agree').change(function() {
+    var state = $(this).prop('checked');
+    if (state === true) {
+        $('#continue').removeAttr('disabled');
+    } else {
+        $('#continue').attr('disabled', 'disabled');
+    }
+  });
+  
+});
+</script>
+</body>
+</html>
